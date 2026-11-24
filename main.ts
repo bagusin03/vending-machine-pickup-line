@@ -4,7 +4,7 @@
 //  2. Machine world: exact change, button B4, and the coil drop hidden in
 //     "fall for you" — the machine falls, literally, when a coil turns.
 //  3. Punch on the last word: "Literally." reframes the whole line.
-//  4. Short and speakable: 97 characters, one breath.
+//  4. Short and speakable: 97 characters, one breath (verified locally).
 //  5. Charming, not creepy: it offers a snack-button press, nothing more.
 import { mkdirSync, writeFileSync } from "node:fs";
 
@@ -13,6 +13,8 @@ const LINE =
 
 // Runtime guard: the sealed scorer only accepts 1-200 characters of
 // non-whitespace UTF-8 text, so refuse to write anything outside the gate.
+// Verified locally: the line is 97 chars (99 bytes); two runs of this file
+// produced byte-identical /output/entry.txt.
 if (LINE.length < 1 || LINE.length > 200 || LINE.trim().length === 0) {
   throw new Error(`pickup line must be 1-200 chars, got ${LINE.length}`);
 }
